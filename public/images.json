@@ -1,0 +1,64 @@
+{
+  "carousel": {
+    "slide_1": "carousel/slide-1.webp",
+    "slide_2": "carousel/slide-2.webp",
+    "slide_3": "carousel/slide-3.webp",
+    "slide_4": "carousel/slide-4.webp",
+    "slide_5": "carousel/slide-5.webp"
+  },
+  "icons": {
+    "desayuno": "icons/desayuno.png",
+    "excursiones_guiadas": "icons/excursiones-guiadas.png",
+    "spa": "icons/spa.png",
+    "checkin": "icons/checkin.png",
+    "sala_de_juegos": "icons/sala-de-juegos.png",
+    "sala_de_cine": "icons/sala-de-cine.png",
+    "salon_infantil": "icons/salon-infantil.png",
+    "skiing": "icons/skiing.png",
+    "gym": "icons/gym.png",
+    "mountain": "icons/mountain.png"
+  },
+  "logos": {
+    "corralco": "logos/corralco-logo.png",
+    "indy": "logos/indy-logo.webp"
+  },
+  "spa": {
+    "jacuzzi": "spa/jacuzzi.jpg",
+    "piscina": "spa/piscina.jpg",
+    "piscina_climatizada": "spa/piscina-climatizada.jpg",
+    "tratamientos": "spa/tratamientos.png",
+    "sauna": "spa/sauna.jpg"
+  },
+  "rooms": {
+    "standard": "rooms/standard.jpg",
+    "superior": "rooms/superior.jpg",
+    "suite": "rooms/suite.jpg"
+  },
+  "blog": {
+    "post_1": "blog/post-1.jpg",
+    "post_2": "blog/post-2.jpg"
+  },
+  "termas": {
+    "termas_1": "termas/termas-1.png",
+    "termas_2": "termas/termas-2.png"
+  },
+  "resort": {
+    "corralco_lowres": "resort/corralco-lowres.jpg",
+    "ski_resort": "resort/ski-resort.webp",
+    "resort_nieve": "resort/resort-nieve.png",
+    "corralco_nevado": "resort/corralco-nevado.png",
+    "corralco_walking": "resort/corralco-walking.png",
+    "people_corralco": "resort/people-corralco.png",
+    "bar": "resort/bar.png",
+    "hotel_room": "resort/hotel-room.jpg",
+    "trail_map": "resort/trail-map.jpg",
+    "volcan_express": "resort/volcan-express.jpg",
+    "corralco_4618": "resort/corralco-4618.png"
+  },
+  "gallery": {
+    "arthur_ghilini": "gallery/arthur-ghilini.png",
+    "corralco_5514": "gallery/corralco-5514.png",
+    "corralco_5419": "gallery/corralco-5419.png",
+    "img_0469": "gallery/img-0469.png"
+  }
+}
