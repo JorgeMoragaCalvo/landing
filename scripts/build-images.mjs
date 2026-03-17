@@ -15,6 +15,14 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const root = resolve(__dirname, '..');
 const publicDir = resolve(root, 'public');
 
+// Parse --base argument (default: '/')
+let basePath = '/';
+const baseIdx = process.argv.indexOf('--base');
+if (baseIdx !== -1 && process.argv[baseIdx + 1]) {
+  basePath = process.argv[baseIdx + 1];
+  if (!basePath.endsWith('/')) basePath += '/';
+}
+
 // UUID → local path mapping (UUID is the first 8+ chars of the Landingi asset ID)
 const UUID_MAP = {
   // Carousel
@@ -107,7 +115,7 @@ function replaceUrls(content) {
   let result = content;
 
   for (const [uuid, localPath] of Object.entries(UUID_MAP)) {
-    const localUrl = `/images/${localPath}`;
+    const localUrl = `${basePath}images/${localPath}`;
 
     // Replace cdn.lugc.link URLs with various transform parameters
     // Pattern: https://cdn.lugc.link/UUID/...anything.../
@@ -181,6 +189,12 @@ html = html.replace(
   /srcset="[^"]*"\s*sizes="[^"]*"\s*src="([^"]*)"/g,
   'src="$1"'
 );
+
+// Prefix absolute CSS references with base path
+if (basePath !== '/') {
+  html = html.replace(/href="\/landingi-base\.css"/g, `href="${basePath}landingi-base.css"`);
+  html = html.replace(/href="\/corralco-base\.css"/g, `href="${basePath}corralco-base.css"`);
+}
 
 writeFileSync(htmlOutputPath, html, 'utf-8');
 console.log('✓ Generated:', htmlOutputPath);

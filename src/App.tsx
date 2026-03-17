@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 function App() {
   useEffect(() => {
-    window.location.replace("/preventa-corralco.html");
+    window.location.replace(import.meta.env.BASE_URL + "preventa-corralco.html");
   }, []);
 
   return (
