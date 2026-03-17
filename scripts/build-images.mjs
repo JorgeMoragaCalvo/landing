@@ -190,6 +190,11 @@ html = html.replace(
   'src="$1"'
 );
 
+// Strip lazyload class — images are local, no need for Landingi's lazy loader.
+// The CSS rule `.lazyload { background-image: none; }` hides sections until
+// the external lazysizes.js removes the class, which won't work on our host.
+html = html.replace(/\blazyload\b/g, '');
+
 // Prefix absolute CSS references with base path
 if (basePath !== '/') {
   html = html.replace(/href="\/landingi-base\.css"/g, `href="${basePath}landingi-base.css"`);
@@ -206,6 +211,8 @@ const cssOutputPath = resolve(publicDir, 'corralco-base.css');
 if (existsSync(cssTemplatePath)) {
   let css = readFileSync(cssTemplatePath, 'utf-8');
   css = replaceUrls(css);
+  // Remove CSS rules that hide lazyload elements
+  css = css.replace(/[^{}]*\.lazyload[^{}]*\{[^}]*background-image:\s*none[^}]*\}/g, '');
   writeFileSync(cssOutputPath, css, 'utf-8');
   console.log('✓ Generated:', cssOutputPath);
 }
