@@ -190,9 +190,10 @@ html = html.replace(
   'src="$1"'
 );
 
-// Strip lazyload class — images are local, no need for Landingi's lazy loader.
-// The CSS rule `.lazyload { background-image: none; }` hides sections until
-// the external lazysizes.js removes the class, which won't work on our host.
+// Strip Landingi lazy-loading: images are local, lazysizes.js won't load on our host.
+// 1. Convert data-src to src so browsers load images directly
+html = html.replace(/\bdata-src="/g, 'src="');
+// 2. Remove lazyload class (CSS hides these elements with background-image: none)
 html = html.replace(/\blazyload\b/g, '');
 
 // Prefix absolute CSS references with base path
